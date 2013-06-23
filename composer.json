@@ -1,0 +1,23 @@
+{
+    "name": "frastel/puphpeteer-installer",
+    "description": "Installs versioned Puppet modules with PHP and Composer",
+    "keywords": ["puppet", "puphpet", "php", "composer"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Frank Stelzer",
+            "email": "dev@frankstelzer.de"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "php": ">=5.3.3"
+    },
+    "require-dev": {
+        "composer/composer": "*"
+    },
+    "autoload": {
+        "psr-0": { "Frastel\\Puphpeteer\\": "src/" }
+    },
+    "target-dir": "Frastel/Puphpeteer"
+}
