@@ -17,7 +17,7 @@
         "composer/composer": "*"
     },
     "autoload": {
-        "psr-0": { "Frastel\\Puphpeteer\\": "src/" }
+        "psr-0": { "Frastel\\Puphpeteer\\": "" }
     },
     "target-dir": "Frastel/Puphpeteer"
 }
