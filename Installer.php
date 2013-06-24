@@ -8,10 +8,13 @@ use Composer\Script\Event;
  * Copies the puppet modules installed by Composer
  * to the real puppet modules dir.
  *
- * Check "extra" section of composer.json for configuration.
+ * Check the README for configuration.
  */
 class Installer
 {
+    const PROPERTY_PUPPET_MODULES_DIR = 'puppet-modules-dir';
+    const PROPERTY_PUPPET_MODULES     = 'puppet-modules';
+
     /**
      * @param Event $event
      *
@@ -24,18 +27,22 @@ class Installer
         // everything needed for this installer
         // is stored in the "extra" config section
         $extra = $event->getComposer()->getPackage()->getExtra();
-        if (!array_key_exists('modules-dir', $extra) || !array_key_exists('modules', $extra)) {
+        if (
+            !array_key_exists(self::PROPERTY_PUPPET_MODULES_DIR, $extra)
+            ||
+            !array_key_exists(self::PROPERTY_PUPPET_MODULES, $extra)
+        ) {
             throw new \InvalidArgumentException('"extra" configuration needs properties "modules-dir" and "modules"');
         }
 
         // find out where we are and where we should install the puppet modules
-        $moduleDir = $extra['modules-dir'];
+        $modulesDir = $extra[self::PROPERTY_PUPPET_MODULES_DIR];
         $vendorDir = realpath($event->getComposer()->getConfig()->get('vendor-dir'));
         $projectDir = realpath($vendorDir.'/..');
 
         // copy original puppet module dir from vendors to the puppet modules dir
-        foreach ($extra['modules'] as $name => $target) {
-            $modulePath = $moduleDir.'/' . $target;
+        foreach ($extra[self::PROPERTY_PUPPET_MODULES] as $name => $target) {
+            $modulePath = $modulesDir.'/' . $target;
             $io->write(sprintf('Installing Puppet module "%s" to "%s"', $name, $modulePath));
 
             $from = $vendorDir . '/' . $name;
