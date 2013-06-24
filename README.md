@@ -61,3 +61,5 @@ Define where the Puppet modules should be copied to and how they should be renam
 ```
 * *puppet-modules-dir*: Relative path dependent to your composer.json
 * *puppet-modules*: A list of modules which are installed via Composer and should be copied to the `puppet-modules-dir`. The keys are the original project names and the values the expected puppet module names.
+
+Example: [Demo](https://github.com/frastel/puphpeteer-installer-demo/blob/master/composer.json)
