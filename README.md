@@ -2,7 +2,7 @@
 
 Installs versioned Puppet modules with PHP and Composer.
 
-The default ![puppet module installer](http://docs.puppetlabs.com/puppet/2.7/reference/modules_installing.html) is too complicated for you or adding Puppet modules as git submodules feels strange?
+The default [puppet module installer](http://docs.puppetlabs.com/puppet/2.7/reference/modules_installing.html) is too complicated for you or adding Puppet modules as git submodules feels strange?
 Then this installer might be useful for you.
 
 The required Puppet modules are installed via Composer in the `vendor` directory as usual,
@@ -24,7 +24,7 @@ vendor/
 The contents of the `modules` and `vendor` directory should be ignored from git.
 
 This setup assumes that you have PHP and Composer already installed on your machine. So you can not use this setup
-on a clean install. But anyway this was only an idea during development of ![PuPHPet](https://github.com/puphpet/puphpet/issues/56) and maybe it helps you in some cases.
+on a clean install. But anyway this was only an idea during development of [PuPHPet](https://github.com/puphpet/puphpet/issues/56) and maybe it helps you in some cases.
 
 The required Puppet modules do not need a composer.json, the installation works anyway but without versioning.
 Adding a composer.json to a module will add versioning support.
