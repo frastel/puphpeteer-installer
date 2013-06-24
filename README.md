@@ -26,6 +26,9 @@ The contents of the `modules` and `vendor` directory should be ignored from git.
 This setup assumes that you have PHP and Composer already installed on your machine. So you can not use this setup
 on a clean install. But anyway this was only an idea during development of ![PuPHPet](https://github.com/puphpet/puphpet/issues/56) and maybe it helps you in some cases.
 
+The required Puppet modules do not need a composer.json, the installation works anyway but without versioning.
+Adding a composer.json to a module will add versioning support.
+
 ## Usage in composer.json
 
 Add `frastel/puphpeteer-installer` to your required packages.
