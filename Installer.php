@@ -42,6 +42,10 @@ class Installer
 
         // copy original puppet module dir from vendors to the puppet modules dir
         foreach ($extra[self::PROPERTY_PUPPET_MODULES] as $name => $target) {
+            if (empty($name) || empty($target)) {
+                $io->write(sprintf('Skip Puppet module installation from "%s" to "%s"', $name, $target));
+                continue;
+            }
             $modulePath = $modulesDir.'/' . $target;
             $io->write(sprintf('Installing Puppet module "%s" to "%s"', $name, $modulePath));
 
