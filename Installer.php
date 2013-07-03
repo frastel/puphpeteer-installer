@@ -49,7 +49,7 @@ class Installer
             $to = $projectDir . '/' . $modulePath;
 
             // @TODO is there a better way without installing any other vendor lib?
-            shell_exec("cp -r {$from} {$to}");
+            shell_exec("rsync -rv --delete --exclude=.git --exclude=.* {$from}/ {$to}/");
         }
     }
 }
